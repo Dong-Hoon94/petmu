@@ -1,6 +1,12 @@
-import { LoginWrap } from "./styles"
+import { useState } from "react";
+import { LoginWrap } from "./styles";
+import { FaRegEyeSlash ,FaRegEye } from "react-icons/fa";
 
 const Login = () => {
+  const [isShow, setIsShow] = useState(false);
+  const onShowPassword = () => {
+    setIsShow((prev) => !prev);
+  };
   return (
     <LoginWrap className="login-wrap">
       <div className="login_main">
@@ -10,11 +16,29 @@ const Login = () => {
       {/* <!-- 로그인 아이디  --> */}
       <div className="login_id">
         <h4>ID </h4>
-        <input type="text" name="id" id="id" className="login_idh" placeholder="ID" />
+        <input
+          type="text"
+          name="id"
+          id="id"
+          className="login_idh"
+          placeholder="ID"
+        />
       </div>
       <div className="login_pw">
         <h4>Password</h4>
-        <input type="password" id="password" className="login_pwh" placeholder="Password" />
+        <input
+          type={`${isShow ? "text" : "password"}`}
+          id="password"
+          className="login_pwh"
+          placeholder="Password"
+        />
+        <div className="eyes" onClick={onShowPassword}>
+          {isShow ? (
+            <FaRegEye size={20} color="#495057" />
+          ) : (
+            <FaRegEyeSlash size={21} color="lightgray"/>
+          )}
+        </div>
       </div>
 
       <div className="login_etc">
@@ -45,13 +69,11 @@ const Login = () => {
               </span>
               <span className="login_text">카카오로 로그인</span>
             </a>
-
           </li>
-
         </ul>
       </div>
     </LoginWrap>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

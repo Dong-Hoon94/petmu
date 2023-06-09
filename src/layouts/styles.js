@@ -25,6 +25,5 @@ export const MainWrap = styled.div`
     width: 87%;
     height: 90vh;
     margin: 0 auto;
-    display: flex;
   }
 `;

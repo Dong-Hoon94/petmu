@@ -2,7 +2,7 @@ import {Routes, Route} from 'react-router-dom'
 import MainLayout from "../../layouts/MainLayout";
 import Home from "../../pages/home";
 import Login from '../../pages/login';
-import SignUp from '../SignUp';
+import SignUp from '../../pages/signUp';
 import My from '../../pages/My';
 import Community from '../../pages/community';
 

@@ -22,8 +22,6 @@ export const MainWrap = styled.div`
 
   .contents {
     position: relative;
-    width: 87%;
-    height: 90vh;
     margin: 0 auto;
   }
 `;

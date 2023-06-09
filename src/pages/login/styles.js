@@ -3,31 +3,16 @@ import styled from "@emotion/styled";
 export const LoginWrap = styled.div`
   position: absolute;
   left: 50%;
-  top: 20%;
+  top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 25px 10px;
   width: 500px;
-  height: 505px;
   border-radius: 10px;
   box-shadow: 0px 0px 12px -3px rgb(0 0 0 / 20%);
   background-color: #fff;
   transform: translateX(-50%);
-
-  .login {
-    height: 505px;
-    padding-bottom: 50px;
-    min-width: 430px;
-    background: white;
-    box-shadow: 0px 0px 12px -3px rgb(0 0 0 / 20%);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-sizing: border-box;
-  }
 
   .login_main span {
     position: fixed;
@@ -79,6 +64,7 @@ export const LoginWrap = styled.div`
     outline: none;
   }
 
+
   .login_pw {
     margin-top: 20px;
     width: 80%;
@@ -92,7 +78,19 @@ export const LoginWrap = styled.div`
     padding: 0px 20px;
     border: 1px solid lightgray;
     outline: none;
+    position: relative;
     /* outline : 외곽선 스타일 */
+  }
+
+  .login_pw .eyes {
+  position: absolute;
+  top: 5px;
+  bottom: 0;
+  right: 75px;
+  margin: auto 2px;
+  height: 30px;
+  font-size: 22px;
+  cursor: pointer;
   }
 
   .forgot_pw a {
@@ -155,7 +153,6 @@ export const LoginWrap = styled.div`
   }
 
   .submit ul.sns_login .kakao {
-    position: absolute;
     background: yellow;
     border-radius: 9px;
     font-weight: 500;
@@ -191,7 +188,7 @@ export const LoginWrap = styled.div`
   }
 
   ul.sns_login .kakao .login_text {
-    padding: 0 40px;
+    padding: 0px 60px;
     letter-spacing: 1.2px;
   }
 `;

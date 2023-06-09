@@ -26,10 +26,12 @@ const Nav = () => {
         </div>
         <div className="user-menu">
           <ul className="menu">
-          <li>
+            <li>
               <Link to="/login">로그인</Link>
             </li>
-            <li>회원가입</li>
+            <li>
+            <Link to="/signup">회원가입</Link>
+            </li> 
           </ul>
         </div>
       </div>

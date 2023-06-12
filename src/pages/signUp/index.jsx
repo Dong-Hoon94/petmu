@@ -11,18 +11,23 @@ const SignUp = () => {
       <form className="SignUpWrap" action="/" method="post">
         <div className="SignUpWrap_info">
           <div className="label">
-            <label htmlFor="id">ID</label>
+            <label></label>
           </div>
 
-          <div className="input_wrap">
-            <div className="input_main_wrap">
-              <input
-                type="text"
-                name="id"
-                id="id"
-                className="login_idh"
-                placeholder="아이디를 입력해주세요."
-              />
+          <div className="wrapper">
+            <div className="fancy-input">
+              <div>
+                <input
+                  className="fancy-input--input"
+                  type="text"
+                  required
+                  //  span 속성 애니메이션
+                />
+
+                <label className="fancy-input--label" htmlFor="email">
+                  이메일
+                </label>
+              </div>
 
               <div className="button_wrap">
                 <button onClick={() => alert("중복확인 개발중")}>
@@ -33,50 +38,56 @@ const SignUp = () => {
           </div>
 
           <div className="label">
-            <label htmlFor="label_a Password">Password</label>
+            <label></label>
           </div>
 
-          <div className="input_wrap">
-            <div className="input_main_wrap">
+          <div className="wrapper">
+            <div className="fancy-input">
               <input
+                className="fancy-input--input"
                 type="password"
-                name="password"
-                id="password"
-                className="login_idh"
-                placeholder="비밀번호를 입력해주세요."
+                required //  span 속성 애니메이션
               />
+              <label className="fancy-input--label" htmlFor="email">
+                <label>비밀번호</label>
+              </label>
             </div>
           </div>
 
           <div className="label">
-            <label htmlFor="Password_check">Confirm Password</label>
+            <label></label>
           </div>
 
-          <div className="input_wrap">
-            <div className="input_main_wrap">
+          <div className="wrapper">
+            <div className="fancy-input">
               <input
-                type="text"
-                name="Password_check"
-                id="Password_check"
-                className="login_idh"
-                placeholder="비밀번호를 한번 더 입력해주세요."
+                className="fancy-input--input"
+                type="password"
+                // autoCapitalize="off"
+                required //  span 속성 애니메이션
               />
+              <label className="fancy-input--label" htmlFor="email">
+                <label>비밀번호 확인</label>
+              </label>
             </div>
           </div>
 
           <div className="label">
-            <label htmlFor="Nickname">Nickname</label>
+            <label></label>
           </div>
-          
-          <div className="input_wrap">
-            <div className="input_main_wrap">
+
+          <div className="wrapper">
+            <div className="fancy-input">
               <input
+                className="login_idh fancy-input--input"
                 type="text"
-                name="Nickname"
-                id="Nickname"
-                className="login_idh"
-                placeholder="닉네임을 입력해주세요."
+                // autoCapitalize="off"
+                required
               />
+
+              <label className="fancy-input--label" htmlFor="email">
+                <label>닉네임</label>
+              </label>
 
               <div className="button_wrap">
                 <button onClick={() => alert("중복확인 개발중")}>
@@ -85,11 +96,15 @@ const SignUp = () => {
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="submit">
-          <div className="login__submit">
-            <button type="submit">회원가입</button>
+          <div className="label">
+            <label></label>
+          </div>
+
+          <div className="submit">
+            <div className="login__submit">
+              <button type="submit">회원가입</button>
+            </div>
           </div>
         </div>
       </form>

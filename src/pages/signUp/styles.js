@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const SignUpWrap = styled.div`
   position: absolute;
   left: 50%;
-  top: 10%;
+  top: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ export const SignUpWrap = styled.div`
   border-radius: 10px;
   box-shadow: 0px 0px 12px -3px rgb(0 0 0 / 20%);
   background-color: #fff;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 
   * {
   margin: 0;

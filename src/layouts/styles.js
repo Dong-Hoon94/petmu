@@ -18,10 +18,12 @@ export const MainWrap = styled.div`
 
   .main_container {
     padding: 25px;
+    height: 100vh;
   }
 
   .contents {
     position: relative;
     margin: 0 auto;
+    height: 100%;
   }
 `;

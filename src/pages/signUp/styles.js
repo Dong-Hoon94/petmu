@@ -7,7 +7,7 @@ export const SignUpWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px 60px 25px 63px;
+  padding:27px 57px 25px 57px;
   width: 500px;
   border-radius: 10px;
   box-shadow: 0px 0px 12px -3px rgb(0 0 0 / 20%);
@@ -73,74 +73,144 @@ export const SignUpWrap = styled.div`
   .label {
   position: relative;
   top: 0px;
-  left:-4px;
+  left: -4px;
   }
 
   .SignUpWrap_info .label {
     margin: 0px 0 45px 0px;
     font-weight: 600;
   }
-  
+
+  .SignUpWrap-input_main .eyes {
+    position: absolute;
+    top: 1px;
+    bottom: 0px;
+    right: 22px;
+    margin: auto;
+    height: 30px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+   /* button effect */
   .button_wrap button {
-    width: 92px;
+    width: 100px;
     height: 50px;
     border-top-right-radius: 9px;
-    border-bottom-right-radius:9px;
+    border-bottom-right-radius: 9px;
     position: absolute;
-    top: -2px;
-    bottom: -2px;
-    right: 0;
+    top: -4px;
+    bottom: -3px;
+    right: -1px;
     margin: auto 0;
     border: none;
+    outline: none;
     color: white;
     cursor: pointer;
     background: #f28241;
     font-size: 15px;
+    z-index: 1; //button border 가리기
   }
-
-  .button_wrap button:hover {
-    opacity: 0.5;
-    transition: 0.8s;
-  }
-
-  .login_pw {
-    margin-top: 20px;
-    width: 80%;
-  }
-
-  .login_pw input {
-    width: 100%;
+  
+  button.Collision {
+    color: #fff;
     height: 50px;
-    border-radius: 9px;
-    margin-top: 10px;
-    padding: 0px 20px;
-    border: 1px solid lightgray;
-    outline: none;
-    position: relative;
-    /* outline : 외곽선 스타일 */
+    width: 100px;
+    display: block;
+    font-weight: bold;
+    position: absolute;
+    overflow: hidden; 
+ 
+  }
+  
+  button.Collision::before,
+  button.Collision::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    z-index: -1; //button 텍스트 보이기
+    background: #4c6173;
+    top:50%;
+    border-radius:50%;
+   
+
   }
 
+  button.Collision::before {
+    transform: translate(50%, -50%);
+    left: -30px;
+  }
 
+  button.Collision::after {
+    transform: translate(50%, -50%);
+    right: -15px;
+ 
+  }
+
+  button.Collision:hover::before {
+    animation: move-left 0.8s both;
+    animation-direction: alternate;
+  }
+
+  button.Collision:hover::after {
+    animation: move-right 0.8s both;
+    animation-direction: alternate;
+  }
+
+   /* @keyframes 
+  https://webclub.tistory.com/621 참고*/
+   @keyframes move-left {
+    0% {
+      left: -20px;
+    }
+    50% {
+      left: 30%;
+      width: 20px;
+      height:20px;
+    }
+    100% {
+      left: -50%;
+      width:150px;
+      height:150px;
+    }
+  }  
+ 
+   @keyframes move-right {
+    0% {
+      right: -30px;
+    }
+    50% {
+      right: 50px;
+      width: 20px;
+      height:20px;
+    }
+    100% {
+      right: 50px;
+      width: 150px;
+      height:150px;
+    }
+   }
+  
   /* input effect */
- .wrapper {
+ .SignUpWrap_wrapper {
   width: 377px;
   height: 50px;
-  display: flex;
-  flex-direction: column;;
-  justify-content: space-between;
   position: relative;
-    top: 0px;
-    right: 6px;
+  top: 0px;
+  right: 5px;
+  outline: none;
+   
 }
 
-
-.fancy-input .fancy-input--input {
+.SignUpWrap-input_main .SignUpWrap-input--input {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
   width: 377px;
   height: 50px;
   padding-left: 10px;
+  position: r;
   outline: none;
   border: none;
   pointer-events: auto;
@@ -149,23 +219,18 @@ export const SignUpWrap = styled.div`
   border-radius: 9px;
 }
 
-.fancy-input--label{
+.SignUpWrap-input--label{
   position: relative;
   top: -6px;
   left: -3px;
   pointer-events: none;
+  color: #D2D2D2;
 }
 
-.fancy-input .op .fancy-input--input    {
-  border: 1px solid red;
-  width: 100px;
-}
-.fancy-input {
+.SignUpWrap-input_main {
   transition: 0.5s ease;
   position: relative;
   outline: none;
-  
-
 
   &:hover,
   &:focus{
@@ -210,7 +275,7 @@ export const SignUpWrap = styled.div`
     height: 100%;
     transition: width 0.5s ease-in-out, 
                 height 0.5s ease-in-out;
-  }
+              }
 
   &:hover:before,
   &:focus:before {
@@ -228,7 +293,7 @@ export const SignUpWrap = styled.div`
   }
 }
 
-.fancy-input--input {
+.SignUpWrap-input--input {
   transition: 0.2s ease;
 
   &:placeholder {
@@ -237,11 +302,11 @@ export const SignUpWrap = styled.div`
 
 /* &:valid ~ .fancy-input--label,
   &:not(&:placeholder-shown) ~ .fancy-input--label {
-    opacity: 0;
+    opacity: 0; 입력하면 label 서서히 사라지기
   } */
 
-  &:focus ~ .fancy-input--label,
-  &:valid ~ .fancy-input--label{
+  &:focus ~ .SignUpWrap-input--label,
+  &:valid ~ .SignUpWrap-input--label{
     font-size: 16px;
     color: black;
     font-weight: 600;
@@ -251,27 +316,175 @@ export const SignUpWrap = styled.div`
   }  
 }
 
-
-.fancy-input--label {
+.SignUpWrap-input--label {
   opacity: 1;
-  color: #D2D2D2;
   position: absolute;
-  z-index: 1;
   top: 12px;
   left: 15px;
   transition: 0.5s ease;
 }
 
+ /* Moema
+.button--moema {
+  background: #f28241;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-  .submit {
-    margin-top: 35px;
+.button--moema::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  bottom: -20px;
+  right: -20px;
+  background: inherit;
+  z-index: -1;
+  opacity: 0.4;
+  -webkit-transform: scale3d(0.8, 0.5, 1);
+  transform: scale3d(0.8, 0.5, 1);
+}
+.button--moema:hover {
+  -webkit-transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+  transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+  -webkit-animation: anim-moema-1 0.3s forwards;
+  animation: anim-moema-1 0.3s forwards; //콩콩 뛰는 모션
+}
+.button--moema:hover::before {
+  -webkit-animation: anim-moema-2 0.3s 0.3s forwards;
+  animation: anim-moema-2 0.3s 0.3s forwards;
+}
+@-webkit-keyframes anim-moema-1 {
+  60% {
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  85% {
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes anim-moema-1 {
+  60% {
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  85% {
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@-webkit-keyframes anim-moema-2 {
+  to {
+    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes anim-moema-2 {
+  to {
+    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+} 유효성 검사 틀릴 시 사용 */
+
+/* btn effect */
+.btn-ami {
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-size: 16.2pt;
+  width: 100%;
+  height: 50px;
+  position: relative;
+  border: none;
+  color: #fff;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  background: #f28241;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.btn-ami:before {
+  content: "";
+  height: 0%;
+  width: 0%;
+  background: #4c6173;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  border-radius: 20px;
+  z-index: -1;
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
+}
+
+.btn-ami:hover:before {
+  animation: btn-ami 5s;
+  background-color: #4c6173;
+}
+
+.btn-ami:hover {
+  color: #f1f1f1;
+  border-color: #4c6173;
+  background-color: #4c6173;
+  transition: background-color 0.5s ease-in-out 0.7s;
+}
+
+@keyframes btn-ami {
+  0% {
+    height: 0%;
+    width: 0%;
+  }
+
+  25% {
+    height: 1000%;
+    width: 1000%;
+  }
+
+  50% {
+    height: 500%;
+    width: 500%;
+  }
+
+  75% {
+    height: 100%;
     width: 100%;
   }
 
-  .submit .login__submit button {
+  100% {
+    height: 0%;
+    width: 0%;
+  }
+
+}
+
+.btn-ami:focus {
+  outline: none
+}
+
+
+
+
+  .submit {
+    margin-top: 35px;
+    width: 98%;
+  }
+
+  .submit button {
     width: 100%;
     height: 50px;
-    border: 0;
+    border: none;
     outline: none;
     position: relative;
     left: -5px;
@@ -286,5 +499,4 @@ export const SignUpWrap = styled.div`
     background: #4c6173;
     transition: 0.8s;
   }
-
  `;
